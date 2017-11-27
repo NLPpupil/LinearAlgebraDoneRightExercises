@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>第3章</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: black; background-color: white; overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(41, 41, 41); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: black; }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(41, 41, 41); border-color: rgb(214, 214, 214); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(214, 214, 214); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(214, 214, 214); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(0, 0, 0); background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(245, 245, 245); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(0, 0, 0); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(199, 199, 199); border-image: initial; background-color: rgb(240, 240, 240); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+.line-number.bracket-matcher {
+  background-color: #777;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: white;
+  color: black;
+}
+pre.editor-colors .cursor-line {
+  background-color: #e8f2fe;
+}
+pre.editor-colors .wrap-guide {
+  background-color: #d3d3d3;
+}
+pre.editor-colors .indent-guide {
+  color: #d3d3d3;
+}
+pre.editor-colors .invisible-character {
+  color: #d3d3d3;
+}
+pre.editor-colors .gutter {
+  background-color: white;
+  color: #646464;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: white;
+  color: #646464;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  color: #646464;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #969896;
+}
+pre.editor-colors .invisible {
+  color: black;
+}
+pre.editor-colors .cursor {
+  color: black;
+}
+pre.editor-colors .selection .region {
+  color: white;
+  background-color: #B6D6FD;
+}
+.syntax--comment {
+  color: #407E60;
+}
+.syntax--comment.syntax--block.syntax--javadoc {
+  color: #3F55BF;
+}
+.syntax--keyword {
+  color: #7F0055;
+  font-weight: bold;
+}
+.syntax--keyword.syntax--control {
+  color: #7F0055;
+}
+.syntax--keyword.syntax--operator {
+  font-weight: normal;
+  color: black;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #162CF6;
+  font-style: italic;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #DEB10D;
+}
+.syntax--keyword.syntax--other.syntax--documentation.syntax--javadoc {
+  color: #7F9FBF;
+}
+.syntax--storage {
+  color: #7F0055;
+  font-weight: bold;
+}
+.syntax--storage.syntax--modifier.syntax--import {
+  color: black;
+  font-weight: normal;
+}
+.syntax--storage.syntax--modifier.syntax--package {
+  color: black;
+  font-weight: normal;
+}
+.syntax--storage.syntax--type {
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+}
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #7F0055;
+  font-weight: bold;
+  font-style: normal;
+}
+.syntax--constant {
+  color: #000099;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #8abeb7;
+}
+.syntax--constant.syntax--language {
+  color: #7F0055;
+  font-weight: bold;
+}
+.syntax--constant.syntax--numeric {
+  color: black;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #8abeb7;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #084B3B;
+}
+.syntax--variable {
+  color: #6a3e3e;
+}
+.syntax--variable.syntax--other.syntax--property {
+  color: #162CF6;
+}
+.syntax--variable.syntax--language.syntax--this {
+  color: #7F0055;
+  font-weight: bold;
+}
+.syntax--variable.syntax--interpolation {
+  color: #c23d0d;
+}
+.syntax--variable.syntax--parameter.syntax--function {
+  color: #6a3e3e;
+}
+.syntax--invalid.syntax--illegal {
+  background-color: #EF4D13;
+  color: white;
+}
+.syntax--string {
+  color: #162CF6;
+}
+.syntax--string.syntax--regexp {
+  color: #8abeb7;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #DEB10D;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #EF4D13;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #407E60;
+}
+.syntax--punctuation.syntax--definition.syntax--string {
+  color: #162CF6;
+}
+.syntax--punctuation.syntax--definition.syntax--variable,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: black;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #162CF6;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #f0c674;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #7F0055;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #c23d0d;
+}
+.syntax--support.syntax--class {
+  color: black;
+}
+.syntax--support.syntax--function {
+  color: black;
+  font-style: italic;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #162CF6;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: black;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #f0c674;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: black;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: black;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #162CF6;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #EF4D13;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #DEB10D;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #162CF6;
+}
+.syntax--meta.syntax--class {
+  color: black;
+}
+.syntax--meta.syntax--class .syntax--variable.syntax--definition {
+  color: #162CF6;
+}
+.syntax--meta.syntax--method .syntax--variable.syntax--definition {
+  color: #6a3e3e;
+}
+.syntax--meta.syntax--link {
+  color: #DEB10D;
+}
+.syntax--meta.syntax--require {
+  color: #162CF6;
+}
+.syntax--meta.syntax--selector {
+  color: #7F0055;
+}
+.syntax--meta.syntax--method.syntax--body.syntax--other.syntax--definition.syntax--variable {
+  color: black;
+}
+.syntax--meta.syntax--separator {
+  background-color: #d3d3d3;
+  color: black;
+}
+.syntax--none {
+  color: black;
+}
+.syntax--markup.syntax--bold {
+  color: #DEB10D;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #7F0055;
+}
+.syntax--markup.syntax--deleted {
+  color: #EF4D13;
+}
+.syntax--markup.syntax--italic {
+  color: #7F0055;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #162CF6;
+}
+.syntax--markup.syntax--inserted {
+  color: #084B3B;
+}
+.syntax--markup.syntax--list {
+  color: #EF4D13;
+}
+.syntax--markup.syntax--quote {
+  color: #DEB10D;
+}
+.syntax--markup.syntax--raw.syntax--inline {
+  color: #084B3B;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--markup.syntax--heading {
+  color: #084B3B;
+}
+pre.editor-colors[mini] .scroll-view {
+  padding-left: 1px;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><p>3.A</p>
+<p>3<br>
+如果</p>
+<span class="math"><script type="math/tex; mode=display">\begin{equation}
+T(1,0,...,0) = (A_{1,1},...,A_{m,1})\\
+T(0,1,...,0) = (A_{1,2},...,A_{m,2})\\
+...\\
+T(0,0,...,1) = (A_{1,n},...,A_{m,n})\\
+\end{equation}
+</script></span>
+<p><span class="math"><script type="math/tex">(1,0,...,0),...,(0,...,1)</script></span> 是 <span class="math"><script type="math/tex">\mathbb{F}^n</script></span>的基，根据3.5，<span class="math"><script type="math/tex">(A_{1,1},...,A_{m,1}),...,(A_{1,n},...,A_{m,n})</script></span> 就是 <span class="math"><script type="math/tex">w_1,...,w_n</script></span>，所以</p>
+<span class="math"><script type="math/tex; mode=display">\begin{equation}
+\begin{split}
+T(x_1,...,x_n) & = T(v_1x_1+v_2x_2+...+v_nx_n) \\
+ & = x_1(Tv_1) + ... + x_n(Tv_n)    (加性，齐性)\\
+ & = x_1w_1+...+w_nw_n \\
+ & = (A_{1,1}x_1+...+A_{1,n}x_n,...,A_{m,1}x_1+...+A_{m,n}x_n)
+\end{split}
+\end{equation}
+</script></span>
+<p>因为可以这样表示，所以存在。</p>
+<p>4<br>
+让<span class="math"><script type="math/tex">a_1v_1+...+a_mv_m=0</script></span>，那么，由3.11得：</p>
+<span class="math"><script type="math/tex; mode=display">\begin{equation}
+\begin{split}
+0 & = T(0) \\
+ & = T(a_1v_1+...+a_mv_m)\\
+ & = a_1(Tv_1)+...+a_m(Tv_m) \\
+\end{split}
+\end{equation}
+</script></span>
+<p>因为<span class="math"><script type="math/tex">Tv_1,...,T(v_m)</script></span> 是线性无关的，所以<span class="math"><script type="math/tex">a_1,...,a_m</script></span>都是<span class="math"><script type="math/tex">0</script></span>。即如果<span class="math"><script type="math/tex">a_1v_1+...+a_mv_m=0</script></span>， 那么<span class="math"><script type="math/tex">a_1,...,a_m</script></span>都是<span class="math"><script type="math/tex">0</script></span>，所以<span class="math"><script type="math/tex">v_1,...,v_m</script></span>是线性无关的。</p>
+<p>3.B<br>
+1 <br>
+任何五维到两维的线性映射都可以。</p>
+<p>2<br>
+<span class="math"><script type="math/tex">range \ S \subset null \  T</script></span>，即S的像在T的零空间中，所以对任意<span class="math"><script type="math/tex">v \in V</script></span>, <span class="math"><script type="math/tex">TSv=0</script></span>。所以对任何<span class="math"><script type="math/tex">v \in V</script></span>，<span class="math"><script type="math/tex">(ST)^2v = S(TS(Tv))=S(0)=0</script></span>。</p>
+<p>3<br>
+(a) <span class="math"><script type="math/tex">range \ T=span(v_1,...,v_m)</script></span>，所以如果<span class="math"><script type="math/tex">v_1,...,v_m</script></span>张成<span class="math"><script type="math/tex">V</script></span>,那么<span class="math"><script type="math/tex">range \ T=V</script></span>，即<span class="math"><script type="math/tex">T</script></span>是满的。<br>
+(b) <span class="math"><script type="math/tex">v_1,...,v_m</script></span>是线性无关的当且仅当<span class="math"><script type="math/tex">z_1,...,z_m</script></span>等于<span class="math"><script type="math/tex">0</script></span>，所以被<span class="math"><script type="math/tex">T</script></span>映射成<span class="math"><script type="math/tex">0</script></span>的只有<span class="math"><script type="math/tex">0</script></span>，即<span class="math"><script type="math/tex">null \ T = {0}</script></span>。由3.16得<span class="math"><script type="math/tex">T</script></span>是单的相当于<span class="math"><script type="math/tex">v_1,...,v_m</script></span>是线性无关的。</p>
+<p>4
+设<span class="math"><script type="math/tex">v_1,...,v_5</script></span>是 <span class="math"><script type="math/tex">\mathbb{R}^5</script></span>的基，让 <span class="math"><script type="math/tex">Ts =\{ T \in \mathcal{L}(\mathbb{R}^5,\mathbb{R}^4):dim null \ T > 2 \}</script></span>。设<span class="math"><script type="math/tex">T_1,T_2 \in Ts</script></span>,且 <span class="math"><script type="math/tex">v_1,v_2,v_3</script></span>是 <span class="math"><script type="math/tex">null \ T_1</script></span>的基，<span class="math"><script type="math/tex">v_1,v_2,v_4</script></span>是<span class="math"><script type="math/tex">null \ T_2</script></span>的基。<br>
+如果<span class="math"><script type="math/tex">Ts</script></span>对加法封闭，那么<span class="math"><script type="math/tex">T_1+T_2 \in Ts</script></span>。但是</p>
+<span class="math"><script type="math/tex; mode=display">\begin{equation}
+\begin{split}
+(T_1+T_2)(a_1v_1,...,a_5v_5) & = T_1(a_1v_1,...,a_5v_5)+T_2(a_1v_1,...,a_5v_5) \\
+ & = (T_1a_4v_4 + T_1a_5v_5)+(T_2a_3v_3+T_2a_5v_5)\\
+ & = T_2a_3v_3 + T_1a_4v_4 + (T_1+T_2)(a_5v_5) \\
+\end{split}
+\end{equation}
+</script></span>
+<p>由3.22得 <span class="math"><script type="math/tex">dim \ null (T_1+T_2)=2</script></span>，但是<span class="math"><script type="math/tex">Ts</script></span>中的线性映射的零空间的维度大于2，所以 <span class="math"><script type="math/tex">(T_1+T_2) \not \in  Ts</script></span>，即<span class="math"><script type="math/tex">Ts</script></span>对加法不封闭。所以<span class="math"><script type="math/tex">Ts</script></span>不是 <span class="math"><script type="math/tex">\mathcal{L}(\mathbb{R}^5,\mathbb{R}^4)</script></span> 的子空间。</p>
+<p>5<br>
+任意两维到两维的线性映射。</p>
+<p>6<br>
+由3.22得，如果<span class="math"><script type="math/tex">range \ T=null \ T</script></span>，那么他俩都是2.5，不存在的。</p>
+<p>7<br>
+跟第4题类似，如果是子空间，那么必须满足加法封闭性。但是可以找到两个线性映射使得它俩的和是单的，所以不封闭。</p>
+<p>9<br>
+因为<span class="math"><script type="math/tex">T</script></span>是单的，所以<span class="math"><script type="math/tex">null \ T=\{0\}</script></span>，即可以映射成<span class="math"><script type="math/tex">0</script></span>的向量只有<span class="math"><script type="math/tex">0</script></span>。让<span class="math"><script type="math/tex">0=a_1v_1+...+a_nv_n</script></span>，则可以映射成<span class="math"><script type="math/tex">0</script></span>的向量只有<span class="math"><script type="math/tex">a_1v_1+...+a_nv_n</script></span>。即只有<span class="math"><script type="math/tex">T(a_1v_1+...+a_nv_n)=0</script></span>，那么只有<span class="math"><script type="math/tex">a_1Tv_1+...+a_nTv_n=0</script></span>。又因为<span class="math"><script type="math/tex">v_1,...,v_n</script></span>线性无关，则<span class="math"><script type="math/tex">a_1=...=a_n=0</script></span>。所以只有<span class="math"><script type="math/tex">0Tv_1+...+0Tv_n=0</script></span>，即使得<span class="math"><script type="math/tex">Tv_1,...,Tv_n</script></span>的线性组合为<span class="math"><script type="math/tex">0</script></span>的系数只有<span class="math"><script type="math/tex">0</script></span>，所以他们是线性无关的。</p>
+<p>11<br>
+如果 <span class="math"><script type="math/tex">(S_1S_2...S_n)v=0</script></span> 的 <span class="math"><script type="math/tex">v</script></span> 只有 <span class="math"><script type="math/tex">0</script></span>，那么 <span class="math"><script type="math/tex">S_1S_2...S_n</script></span> 就是单的。<br>
+让 <span class="math"><script type="math/tex">(S_1S_2...S_n)v=0</script></span> ，因为<span class="math"><script type="math/tex">S_1</script></span>是单的，所以有 <span class="math"><script type="math/tex">(S_2...S_n)v=0</script></span>。 以此类推，有<span class="math"><script type="math/tex">S_nv=0</script></span>。因为<span class="math"><script type="math/tex">S_n</script></span>是单的，所以<span class="math"><script type="math/tex">v=0</script></span>。得证。</p>
+<p>12<br>
+设<span class="math"><script type="math/tex">V</script></span>的一组基是<span class="math"><script type="math/tex">v_1,...,v_n</script></span>，其中一部分是 <span class="math"><script type="math/tex">null \ T</script></span>的基，另一部分是 <span class="math"><script type="math/tex">U</script></span>的基。</p>
+<p>13<br>
+<span class="math"><script type="math/tex">(5,1,0,0)</script></span>，<span class="math"><script type="math/tex">(0,0,7,1)</script></span> 是<span class="math"><script type="math/tex">null \ T</script></span>的一个基，所以<span class="math"><script type="math/tex">null \ T</script></span>的维度是2，所以<span class="math"><script type="math/tex">range \ T</script></span>的维度是2。所以<span class="math"><script type="math/tex">range \ T=\mathbb{R}^2</script></span>。所以<span class="math"><script type="math/tex">T</script></span>是满的。</p>
+<p>3C <br>
+1<br>
+元的意思是矩阵某个位置。让<span class="math"><script type="math/tex">v_1,...,v_n</script></span>是 <span class="math"><script type="math/tex">V</script></span> 的基，假设<span class="math"><script type="math/tex">T</script></span>的矩阵至多有<span class="math"><script type="math/tex">dim \ range  T-1</script></span>个非零元，那么矩阵至多有<span class="math"><script type="math/tex">dim  \ range T-1</script></span>个非零向量(列)。由矩阵的定义可知<span class="math"><script type="math/tex">Tv_1,...,Tv_n</script></span>中至多有<span class="math"><script type="math/tex">dim \ range  T-1</script></span>个非零向量。而<span class="math"><script type="math/tex">span(Tv_1,...,Tv_n)=rangeT</script></span>。所以<span class="math"><script type="math/tex">dim \ rangeT</script></span>至多是<span class="math"><script type="math/tex">dim \ range  T-1</script></span>，矛盾。</p>
+<p>3<br>
+由矩阵的定义可知，<span class="math"><script type="math/tex">\mathcal{M}(T)</script></span> 除了第<span class="math"><script type="math/tex">j( j \leq dim \ rangeT</script></span>)行第<span class="math"><script type="math/tex">j</script></span>列的元素等于1以外，其余元素均为0的意思是<span class="math"><script type="math/tex">range T</script></span>的每一个基都恰巧是<span class="math"><script type="math/tex">W</script></span>的基中的某一个。假设<span class="math"><script type="math/tex">v_1,...,v_n</script></span>是<span class="math"><script type="math/tex">V</script></span>的基且其中某个子集经过<span class="math"><script type="math/tex">T</script></span>之后是<span class="math"><script type="math/tex">range T</script></span>的基(3.22)。再将<span class="math"><script type="math/tex">range T</script></span>的基扩充成<span class="math"><script type="math/tex">W</script></span>的基。这样，满足条件的<span class="math"><script type="math/tex">V</script></span>和<span class="math"><script type="math/tex">W</script></span>的基都构造出来了。</p>
+<p>3D<br>
+1<br>
+<span class="math"><script type="math/tex">U</script></span>中每个元素都能通过<span class="math"><script type="math/tex">T</script></span>映射到<span class="math"><script type="math/tex">V</script></span>中不同的元素，<span class="math"><script type="math/tex">V</script></span>中每个元素都能通过 <span class="math"><script type="math/tex">T^{-1}</script></span> 映射到<span class="math"><script type="math/tex">U</script></span>中不同的元素。<span class="math"><script type="math/tex">V</script></span>中每个元素都能通过<span class="math"><script type="math/tex">S</script></span>映射到<span class="math"><script type="math/tex">W</script></span>中不同的元素，<span class="math"><script type="math/tex">W</script></span>中每个元素都能通过 <span class="math"><script type="math/tex">S^{-1}</script></span> 映射到<span class="math"><script type="math/tex">V</script></span>中不同的元素。所以，<span class="math"><script type="math/tex">U</script></span>中元素想映射到<span class="math"><script type="math/tex">W</script></span>，可以先通过<span class="math"><script type="math/tex">T</script></span>映射到<span class="math"><script type="math/tex">V</script></span>，再通过<span class="math"><script type="math/tex">S</script></span>映射到<span class="math"><script type="math/tex">W</script></span>。<span class="math"><script type="math/tex">W</script></span>中元素想映射到<span class="math"><script type="math/tex">U</script></span>，可以先通过<span class="math"><script type="math/tex">S^{-1}</script></span> 映射到 <span class="math"><script type="math/tex">V</script></span>，再通过 <span class="math"><script type="math/tex">T^{-1}</script></span> 映射到<span class="math"><script type="math/tex">U</script></span>。</p>
+<p>2
+假设有两个不可逆的算子，一个算子的值域的基是<span class="math"><script type="math/tex">V</script></span>的基的子集，两一个算子的值域的基是<span class="math"><script type="math/tex">V</script></span>的基的另一个子集，这两个子集不相交且互补，那么这两个算子的和是一个值域为<span class="math"><script type="math/tex">V</script></span>的算子，是一个可逆算子。所以不满足加法封闭性。</p>
+<p>3<br>
+如果存在可逆算子<span class="math"><script type="math/tex">T</script></span>使得<span class="math"><script type="math/tex">Tu=Su</script></span>，那么<span class="math"><script type="math/tex">U</script></span>是单的因为<span class="math"><script type="math/tex">T</script></span>是单的。<br>
+如果<span class="math"><script type="math/tex">S</script></span>是单的，假设<span class="math"><script type="math/tex">u_1,...,u_m</script></span>是 <span class="math"><script type="math/tex">U</script></span> 的基，我们可以扩成<span class="math"><script type="math/tex">V</script></span>的基<span class="math"><script type="math/tex">u_1,...,u_m,v_1,...,v_n</script></span>。由3B第9题可知，<span class="math"><script type="math/tex">Su_1,...,Su_m</script></span>在<span class="math"><script type="math/tex">V</script></span>中线性无关，所以可以扩成<span class="math"><script type="math/tex">V</script></span>的基 <span class="math"><script type="math/tex">Su_1,...,Su_m,w1,...,w_n</script></span>。<br>
+定义<span class="math"><script type="math/tex">T</script></span>: <span class="math"><script type="math/tex">Tu_i=Su_i,Tv_j=w_j</script></span>，由3.5可知<span class="math"><script type="math/tex">T</script></span>存在。那么对于每一个<span class="math"><script type="math/tex">u=a_1u_1+...+a_mu_m</script></span>，有</p>
+<span class="math"><script type="math/tex; mode=display">\begin{equation}
+\begin{split}
+Tu & = T(a_1u_1+...+a_mu_m)\\
+ & = a_1Tu_1+...+a_mTu_m\\
+ & = a_1Su_1+...+a_mSu_m\\
+ & = Su
+\end{split}
+\end{equation}
+</script></span>
+<p>由3B第十题得，<span class="math"><script type="math/tex">V= range T</script></span>，所以<span class="math"><script type="math/tex">T</script></span>是满的，所以<span class="math"><script type="math/tex">T</script></span>可逆。</p>
+<p>4<br>
+设<span class="math"><script type="math/tex">V</script></span>的基是<span class="math"><script type="math/tex">v_1,...,v_n</script></span>，因为<span class="math"><script type="math/tex">null T_1=null T_2</script></span>，所以可以设<span class="math"><script type="math/tex">null T_1</script></span>的基是<span class="math"><script type="math/tex">v_1,...,v_m，m < n</script></span>，那么<span class="math"><script type="math/tex">range T_1</script></span>的基是<span class="math"><script type="math/tex">T_1v_{m+1},...,T_1v_n</script></span>，<span class="math"><script type="math/tex">range T_2</script></span>的基是<span class="math"><script type="math/tex">T_2v_{m+1},...,T_2v_n</script></span>。所以<span class="math"><script type="math/tex">T_1</script></span>和<span class="math"><script type="math/tex">T_2</script></span>映射到<span class="math"><script type="math/tex">W</script></span>的相同维数的子空间，而相同维数的线性空间是同构的，所以可以找到一个从<span class="math"><script type="math/tex">range T_2</script></span>到<span class="math"><script type="math/tex">range T_1</script></span>的可逆线性映射，如果把这个线性映射的定义域从<span class="math"><script type="math/tex">range T_2</script></span>扩展到<span class="math"><script type="math/tex">W</script></span>，那么这个可逆线性映射就是要找的<span class="math"><script type="math/tex">S</script></span>。</p>
+<p>7<br>
+(b)设<span class="math"><script type="math/tex">V</script></span>的基是 <span class="math"><script type="math/tex">v,v_2,...,v_n</script></span>，那么<span class="math"><script type="math/tex">E</script></span>是所有从<span class="math"><script type="math/tex">span(v_2,...,v_n)</script></span> 到<span class="math"><script type="math/tex">W</script></span>的线性映射，由3.61得，<span class="math"><script type="math/tex">dim E = (dim V-1)dimW</script></span>。</p>
+<p>8<br>
+因为<span class="math"><script type="math/tex">T</script></span>是满的，所以<span class="math"><script type="math/tex">dim V \geq dim W</script></span>，所以<span class="math"><script type="math/tex">V</script></span>的维数等于<span class="math"><script type="math/tex">dim W</script></span>的子空间就是要找的<span class="math"><script type="math/tex">U</script></span>。维数相同则同构。</p>
+<p>9<br>
+<span class="math"><script type="math/tex">ST</script></span>的逆是<span class="math"><script type="math/tex">T^{-1}S^{-1}</script></span>，所以<span class="math"><script type="math/tex">S^{-1}</script></span> 和 <span class="math"><script type="math/tex">T^{-1}</script></span> 都必须存在。</p>
+<p>10<br>
+如果<span class="math"><script type="math/tex">ST=I</script></span>，那么<span class="math"><script type="math/tex">S</script></span>是<span class="math"><script type="math/tex">T</script></span>的逆，<span class="math"><script type="math/tex">T</script></span>也是<span class="math"><script type="math/tex">S</script></span>的逆。</p>
+<p>11<br>
+由第9题得<span class="math"><script type="math/tex">S,T,U</script></span>都可逆。 <span class="math"><script type="math/tex">(ST)U=I</script></span>，所以 <span class="math"><script type="math/tex">T^{-1}S^{-1}=U</script></span>，两边同时先经过一个<span class="math"><script type="math/tex">S</script></span>映射可得<span class="math"><script type="math/tex">T^{-1}=US</script></span>。</p>
+<p>13<br>
+由3.69得<span class="math"><script type="math/tex">RST</script></span>是满射所以<span class="math"><script type="math/tex">RST</script></span>可逆，由第9题得<span class="math"><script type="math/tex">S</script></span>可逆，所以<span class="math"><script type="math/tex">S</script></span>是单的。</p></body>
+</html>
